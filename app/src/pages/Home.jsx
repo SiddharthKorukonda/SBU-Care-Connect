@@ -18,18 +18,22 @@ export default function Home(){
           <a href="/resources" className="px-5 py-3 rounded-xl bg-clinicNavy hover:bg-clinicMaroon transition shadow-neon">Find food resources</a>
           <a href="/chat" className="px-5 py-3 rounded-xl border border-white/20 hover:border-clinicMaroon transition">Nutrition chat</a>
         </div>
+
+        {/* trimmed list */}
         <ul className="text-sm text-white/70 list-disc pl-5 space-y-2">
-          <li>Large fonts • High contrast • Simple flows</li>
+          {/* removed: <li>Large fonts • High contrast • Simple flows</li> */}
           <li>Not a replacement for medical care</li>
           <li>Respects culture and dietary restrictions</li>
         </ul>
       </div>
+
       <div className="grid grid-cols-3 gap-2">
         <img src={hero1} alt="" className="rounded-xl card-glass object-cover aspect-[4/3]" />
         <img src={hero2} alt="" className="rounded-xl card-glass object-cover aspect-[4/3]" />
         <img src={hero3} alt="" className="rounded-xl card-glass object-cover aspect-[4/3]" />
       </div>
     </section>
+
     <section className="grid md:grid-cols-3 gap-4">
       {['Immediate guidance','Food access made simple','Clinician-reviewed tips'].map((t,i)=>(
         <div key={i} className="card-glass p-5">
@@ -38,11 +42,19 @@ export default function Home(){
         </div>
       ))}
     </section>
+
+    {/* reviews section without the star/rating line */}
     <section className="space-y-3">
-      <div className="flex items-center gap-3"><div className="text-3xl">⭐️⭐️⭐️⭐️☆</div><div className="text-white/80">4.6 / 5 from patient satisfaction samples</div></div>
       <ReviewCarousel/>
     </section>
-    <section><h2 className="text-2xl font-bold mb-3">FAQ</h2><FAQ/></section>
-    <section className="card-glass p-6"><EmailSignup/></section>
+
+    <section>
+      <h2 className="text-2xl font-bold mb-3">FAQ</h2>
+      <FAQ/>
+    </section>
+
+    <section className="card-glass p-6">
+      <EmailSignup/>
+    </section>
   </div>)
 }
