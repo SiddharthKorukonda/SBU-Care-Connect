@@ -129,5 +129,8 @@ def subscribe():
     return jsonify({"ok": True})
 
 if __name__ == "__main__":
-    # If 5001 is busy, change to 5050 here and in the frontend env if needed
-    app.run(host="127.0.0.1", port=5001, debug=True)
+    import os
+    port = int(os.environ.get("PORT", 5001))
+    # Bind all interfaces so cloud hosts can reach it
+    app.run(host="0.0.0.0", port=port, debug=False)
+
