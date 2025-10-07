@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/SiddharthKorukonda/', // e.g. '/sbu-care-connect/'
+  base: '/SBU-Care-Connect/',   // <-- exact repo name & casing
 })
