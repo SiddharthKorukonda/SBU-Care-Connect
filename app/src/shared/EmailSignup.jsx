@@ -1,0 +1,5 @@
+import React,{useState} from 'react'
+const API_BASE=import.meta.env.VITE_API_BASE||'http://127.0.0.1:5001'
+export default function EmailSignup(){const [email,setEmail]=useState('');const [msg,setMsg]=useState('')
+const submit=async(e)=>{e.preventDefault();setMsg('');try{const r=await fetch(`${API_BASE}/api/subscribe`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})});const d=await r.json();if(d.ok){setMsg('Thanks! We will be in touch.');setEmail('')}else setMsg(d.error||'Something went wrong.')}catch{setMsg('Network error.')}};
+return(<form onSubmit={submit} className="flex flex-col sm:flex-row gap-3 items-start sm:items-center"><div className="flex-1 w-full"><label className="text-sm text-white/70">Stay in touch</label><input value={email} onChange={e=>setEmail(e.target.value)} type="email" required placeholder="you@example.com" className="w-full mt-1 px-3 py-2 rounded-xl bg-black/60 border border-white/20"/></div><button className="px-4 py-2 rounded-xl bg-clinicNavy hover:opacity-90">Connect</button>{msg&&<div className="text-sm text-white/80">{msg}</div>}</form>)}
